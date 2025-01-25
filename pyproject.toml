@@ -1,0 +1,14 @@
+[project]
+name = "repl-nix-workspace"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "bip39>=0.0.2",
+    "cryptography>=44.0.0",
+    "dwave-ocean-sdk>=8.1.0",
+    "eth-account>=0.13.4",
+    "numpy>=2.2.2",
+    "solana>=0.36.2",
+    "web3>=7.7.0",
+]

@@ -1,0 +1,44 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer ring of dots -->
+  <g>
+    <!-- Manually position dots to match exact layout -->
+    <circle cx="50" cy="5" r="3" fill="black"/>
+    <circle cx="73" cy="8" r="3" fill="black"/>
+    <circle cx="90" cy="25" r="3" fill="black"/>
+    <circle cx="95" cy="50" r="3" fill="black"/>
+    <circle cx="90" cy="75" r="3" fill="black"/>
+    <circle cx="73" cy="92" r="3" fill="black"/>
+    <circle cx="50" cy="95" r="3" fill="black"/>
+    <circle cx="27" cy="92" r="3" fill="black"/>
+    <circle cx="10" cy="75" r="3" fill="black"/>
+    <circle cx="5" cy="50" r="3" fill="black"/>
+    <circle cx="10" cy="25" r="3" fill="black"/>
+    <circle cx="27" cy="8" r="3" fill="black"/>
+
+    <!-- Additional dots to complete the circle -->
+    <circle cx="62" cy="6" r="3" fill="black"/>
+    <circle cx="83" cy="15" r="3" fill="black"/>
+    <circle cx="94" cy="37" r="3" fill="black"/>
+    <circle cx="94" cy="63" r="3" fill="black"/>
+    <circle cx="83" cy="85" r="3" fill="black"/>
+    <circle cx="62" cy="94" r="3" fill="black"/>
+    <circle cx="38" cy="94" r="3" fill="black"/>
+    <circle cx="17" cy="85" r="3" fill="black"/>
+    <circle cx="6" cy="63" r="3" fill="black"/>
+    <circle cx="6" cy="37" r="3" fill="black"/>
+    <circle cx="17" cy="15" r="3" fill="black"/>
+    <circle cx="38" cy="6" r="3" fill="black"/>
+  </g>
+
+  <!-- Central black square -->
+  <rect x="25" y="25" width="50" height="50" fill="black"/>
+
+  <!-- Atom symbol in white -->
+  <circle cx="50" cy="50" r="3" fill="white"/>
+  <!-- Horizontal orbit -->
+  <path d="M 30 50 C 30 45, 70 45, 70 50 C 70 55, 30 55, 30 50" stroke="white" stroke-width="1.5" fill="none"/>
+  <!-- Diagonal orbit 1 -->
+  <path d="M 35 35 C 40 30, 60 70, 65 65 C 60 70, 40 30, 35 35" stroke="white" stroke-width="1.5" fill="none"/>
+  <!-- Diagonal orbit 2 -->
+  <path d="M 35 65 C 30 60, 70 40, 65 35 C 70 40, 30 60, 35 65" stroke="white" stroke-width="1.5" fill="none"/>
+</svg>

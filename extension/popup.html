@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Wallet</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="icons/icon48.png" alt="Quantum Wallet Logo" class="logo">
+      <h1>Quantum Wallet</h1>
+    </div>
+
+    <!-- Login Section -->
+    <div id="loginSection" class="auth-section">
+      <h2>Welcome Back</h2>
+      <p class="auth-description">Log in to access your quantum-secure wallet</p>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit" class="primary-button">Login</button>
+      </form>
+      <div class="auth-switch">
+        <p>Don't have an account?</p>
+        <button id="showSignup" class="link-button">Create Account</button>
+      </div>
+    </div>
+
+    <!-- Signup Section -->
+    <div id="signupSection" class="auth-section" style="display: none;">
+      <h2>Create Account</h2>
+      <p class="auth-description">Sign up to create your quantum-secure wallet</p>
+      <form id="signupForm">
+        <input type="text" id="signupUsername" placeholder="Username" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+        <button type="submit" class="primary-button">Sign Up</button>
+      </form>
+      <div class="auth-switch">
+        <p>Already have an account?</p>
+        <button id="showLogin" class="link-button">Log In</button>
+      </div>
+    </div>
+
+    <!-- Main Content (Only visible when logged in) -->
+    <div id="mainContent" style="display: none;">
+      <!-- Tab Navigation -->
+      <div class="tab-navigation">
+        <button class="tab-button active" data-tab="wallets">Wallets</button>
+        <button class="tab-button" data-tab="transactions">Transactions</button>
+        <button class="tab-button" data-tab="settings">Settings</button>
+      </div>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <span>Welcome, <span id="username"></span></span>
+        <button id="logoutBtn" class="secondary-button">Logout</button>
+      </div>
+
+      <!-- Wallets Tab -->
+      <div id="walletsTab" class="tab-content active">
+        <!-- Wallet Creation Section -->
+        <div class="wallet-section">
+          <div class="section-header">
+            <h2>Create New Wallet</h2>
+          </div>
+          <div class="wallet-options">
+            <button type="button" class="wallet-option" data-chain="ethereum">
+              <span class="chain-icon">⟠</span>
+              <span class="chain-name">Ethereum</span>
+            </button>
+            <button type="button" class="wallet-option" data-chain="bitcoin">
+              <span class="chain-icon">₿</span>
+              <span class="chain-name">Bitcoin</span>
+            </button>
+            <button type="button" class="wallet-option" data-chain="solana">
+              <span class="chain-icon">◎</span>
+              <span class="chain-name">Solana</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Wallet List Section -->
+        <div class="wallet-section">
+          <div class="section-header">
+            <h2>Your Wallets</h2>
+            <button class="refresh-button" id="refreshWallets" title="Refresh wallets">
+              ↻
+            </button>
+          </div>
+          <div id="walletList" class="wallet-list">
+            <!-- Wallet items will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Tab -->
+      <div id="transactionsTab" class="tab-content" style="display: none;">
+        <div class="wallet-section">
+          <div class="section-header">
+            <h2>Transaction History</h2>
+            <button class="refresh-button" id="refreshTransactions" title="Refresh transactions">
+              ↻
+            </button>
+          </div>
+          <div id="transactionList" class="transaction-history">
+            <!-- Transaction items will be dynamically added here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings Tab -->
+      <div id="settingsTab" class="tab-content" style="display: none;">
+        <div class="wallet-section">
+          <h2>Settings</h2>
+          <div class="settings-item">
+            <label>
+              <input type="checkbox" id="autoRefresh"> Auto-refresh balances
+            </label>
+          </div>
+          <div class="settings-item">
+            <label>
+              <input type="checkbox" id="showNotifications"> Enable notifications
+            </label>
+          </div>
+          <div class="settings-item">
+            <button id="exportWallets" class="secondary-button">Export Wallets</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Selected Wallet Info -->
+      <div id="walletInfo" class="wallet-section" style="display: none;">
+        <div class="wallet-header">
+          <h2>Wallet Details</h2>
+          <button id="closeWalletInfo" class="secondary-button">Back</button>
+        </div>
+        <div class="wallet-details">
+          <div class="chain-info">
+            <span id="walletChain"></span>
+          </div>
+          <div class="address-container">
+            <p>Address: <span id="walletAddress"></span></p>
+            <button type="button" id="copyAddress" class="icon-button">
+              <span class="copy-icon">📋</span>
+            </button>
+          </div>
+          <div class="balance-display">
+            <div id="balance">Balance: Loading...</div>
+            <button id="refreshBalance" class="refresh-button" title="Refresh balance">
+              ↻
+            </button>
+          </div>
+          <div class="wallet-actions">
+            <button id="sendBtn" class="primary-button">Send</button>
+            <button id="receiveBtn" class="secondary-button">Receive</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification System -->
+  <div id="notification" class="notification"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

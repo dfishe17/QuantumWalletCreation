@@ -1,0 +1,473 @@
+:root {
+  --primary-color: hsl(0, 0%, 0%);
+  --primary-hover: hsl(0, 0%, 20%);
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --error-color: #dc2626;
+  --success-color: #059669;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  width: 320px;
+  height: 600px;
+  margin: 0;
+  padding: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  overflow-y: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: calc(100% - 32px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+/* Auth Forms */
+.auth-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background-color: #f3f4f6;
+  border-radius: var(--border-radius);
+  margin-bottom: 16px;
+}
+
+.auth-tabs .tab-button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: var(--text-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.auth-tabs .tab-button.active {
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+#loginForm,
+#signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+input {
+  padding: 8px 12px;
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* User Info */
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f3f4f6;
+  border-radius: var(--border-radius);
+  margin-bottom: 16px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+.secondary-button {
+  background-color: #f3f4f6;
+  color: var(--primary-color);
+}
+
+.secondary-button:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+
+.danger-button {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.danger-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.wallet-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.network-selector {
+  width: 100%;
+}
+
+.wallet-actions {
+  display: flex;
+  gap: 8px;
+}
+
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  background-color: white;
+  font-size: 14px;
+}
+
+.balance-display {
+  background-color: #f3f4f6;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+}
+
+.address-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #f3f4f6;
+  padding: 12px;
+  border-radius: var(--border-radius);
+}
+
+.address-container p {
+  margin: 0;
+  font-size: 14px;
+  word-break: break-all;
+  flex-grow: 1;
+}
+
+.icon-button {
+  padding: 6px;
+  background: none;
+  border: none;
+}
+
+.icon-button:hover {
+  background-color: #e5e7eb;
+  border-radius: 4px;
+}
+
+.notification {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  background-color: var(--success-color);
+  color: white;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.notification.show {
+  transform: translateY(0);
+}
+
+.notification.error {
+  background-color: var(--error-color);
+}
+
+/* Loading spinner styles */
+.loading-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s infinite linear;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Wallet Selection Styles */
+.wallet-selection {
+  text-align: center;
+}
+
+.wallet-selection h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.wallet-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.wallet-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: var(--border-radius);
+  background: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wallet-option:hover {
+  border-color: var(--primary-color);
+  background-color: #f9f9f9;
+}
+
+.chain-icon {
+  font-size: 24px;
+}
+
+.chain-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Margin Utilities */
+.mt-4 {
+  margin-top: 1rem;
+}
+
+/* New sections for expanded functionality */
+.wallet-section {
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.wallet-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  margin-top: 8px;
+}
+
+.wallet-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wallet-item:hover {
+  background-color: #f9f9f9;
+}
+
+.wallet-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-history {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.transaction-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+}
+
+.settings-section {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.tab-navigation {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.refresh-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.refresh-button:hover {
+  background-color: #f3f4f6;
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 24px;
+  color: #666;
+  font-style: italic;
+}
+
+.error-state {
+  text-align: center;
+  padding: 24px;
+  color: var(--error-color);
+  font-style: italic;
+}
+
+/* Add these new styles after the existing styles */
+
+.auth-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.auth-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.auth-description {
+  text-align: center;
+  color: #666;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.auth-switch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.auth-switch p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  color: var(--primary-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
